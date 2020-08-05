@@ -1,10 +1,14 @@
 import React from 'react';
+import Spinner from './Spinner'
 
 export default class App extends React.Component {
   // TODO: Read more than once, fetch details: https://www.goodreads.com/review/show.xml?id=1647848785&key=1vD1GcrriYfBawccVQYlgg
   // TODO: currently reading
   // TODO: More than 200
-  // TODO: status based pro-rating
+  // TODO: other years
+  // TODO: cover art
+  // TODO: charting
+  // TODO: other stats (pages/day, etc.)
 
   // Oddly some page counts are missing from the API
   pageCountOverrides = {
@@ -62,21 +66,28 @@ export default class App extends React.Component {
     }
   }
 
+  getDescription = review => {
+    return review.title + " (" + (review.rating == "0" ? "no rating" : review.rating + " stars") + ") " + review.pagesThisYear + " pages" + (review.pagesThisYear != review.num_pages ? " (prorated)" : "")
+
+  }
+
   render() {
     if (!this.state) {
-      return <div>Fetching...</div>
+      return <Spinner />
     }
     return (
       <div className="worm">
-        <div>{ "Read this year: " + this.state.totalPagesThisYear + " pages"}</div>
-        <div>{ "End of year estimate: " + this.state.estimatedPagesByEndOfYear  + " pages"}</div>
-        <div>---------</div>
-        {this.state.readThisYear.map(review => {
-            return <div key={review.title}>
-                {review.title + " (" + (review.rating == "0" ? "no rating" : review.rating + " stars") + ") " + review.pagesThisYear + " pages" + (review.pagesThisYear != review.num_pages ? " (prorated)" : "")}
-              </div>
-          })
-        }
+        <div className="stats">
+          <div className="stat"><span>{this.state.totalPagesThisYear}</span> pages so far this year</div>
+          <div className="stat"><span>{this.state.estimatedPagesByEndOfYear}</span> estimated pages at end of year</div>
+        </div>
+        <div className="covers">
+          {
+            this.state.reviews.filter(review => review.image_url.indexOf("nophoto") == -1).map(review => {
+              return <img key={review.title} className="cover" src={review.image_url} />
+            })
+          }
+        </div>
       </div>
     )
   }
