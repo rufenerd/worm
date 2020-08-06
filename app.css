@@ -1,9 +1,23 @@
-.covers {
-  text-align: center;
+.books {
+    display: flex;
+    flex-wrap: wrap;
 }
-.cover {
+
+.book, .cover {
     width: 127px;
     height: 195px;
+}
+
+.book-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.book-details div {
+  padding: 5px;
 }
 
 .stats {
