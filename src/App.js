@@ -97,6 +97,10 @@ export default class App extends React.Component {
     }
   }
 
+  selectReview = selectedReview => {
+    this.setState({ selectedReview })
+  }
+
   render() {
     if (!this.state) {
       return <Spinner />
@@ -110,7 +114,7 @@ export default class App extends React.Component {
         <div className="books">
           {
             this.state.reviews.map(review => {
-              return <Book review={review}/>
+              return <Book review={review} onHover={this.selectReview} selected={this.state.selectedReview == review} />
             })
           }
         </div>
