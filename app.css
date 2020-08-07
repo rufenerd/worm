@@ -1,6 +1,7 @@
 .books {
     display: flex;
     flex-wrap: wrap;
+    cursor: none;
 }
 
 .book, .cover {
