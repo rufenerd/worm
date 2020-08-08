@@ -14,8 +14,9 @@ const Book = props => {
         {!selected && <img className="cover" src={review.image_url} />}
         {selected &&
             <div className="book-details">
+                {review.current && <div>Reading</div>}
                 <div>{review.num_pages + " pages"}</div>
-                <Rating stars={review.rating}/>
+                <Rating stars={review.rating} />
                 {daysToRead > 0.5 && <div>{Math.round(review.num_pages / daysToRead)} pages per day</div>}
             </div>
         }

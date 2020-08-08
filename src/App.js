@@ -7,12 +7,11 @@ export default class App extends React.Component {
   // TODO: currently reading
   // TODO: More than 200
   // TODO: other years
-  // TODO: cover art
   // TODO: charting
-  // TODO: other stats (pages/day, etc.)
 
   // Oddly some page counts are missing from the API
   pageCountOverrides = {
+    "The Body: A Guide for Occupants": 450,
     "The Feynman Lectures on Physics Vol 1": 544,
     "Dataclysm: Who We Are (When We Think No One's Looking)": 304,
     "Drive: The Surprising Truth About What Motivates Us": 242,
@@ -53,6 +52,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ fetching: 2})
     fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
@@ -64,21 +64,23 @@ export default class App extends React.Component {
         parser.parseString(xml, (error, results) => {
           const rawReviews = results.GoodreadsResponse.reviews[0].review
           const reviews = rawReviews.map(this.parseReview)
+          this.setState({ reviews, fetching: this.state.fetching - 1 })
+        })
+      })
 
-          const beginningOfYear = new Date(new Date().getFullYear(), 0, 1)
-          const endOfYear = new Date(new Date().getFullYear() + 1, 0, 1)
-          const readThisYear = []
-          reviews.forEach(review => {
-            if (review.read_at > beginningOfYear) {
-              const timeToRead = review.read_at - review.started_at
-              const fractionThisYear = (review.read_at - Math.max(beginningOfYear, review.started_at)) / (1.0 * timeToRead)
-              review.pagesThisYear = Math.round(fractionThisYear * review.num_pages)
-              readThisYear.push(review)
-            }
-          })
-          const totalPagesThisYear = readThisYear.map(x => x.pagesThisYear).reduce((a, b) => a + b, 0)
-          const estimatedPagesByEndOfYear = Math.round(totalPagesThisYear * ((endOfYear - beginningOfYear) / (Date.now() - beginningOfYear)))
-          this.setState({ reviews, readThisYear, totalPagesThisYear, estimatedPagesByEndOfYear })
+    fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=currently-reading&per_page=200&sort=date_read', {
+      headers: {
+        'origin': 'localhost:1234'
+      }
+    }).then(response => response.text())
+      .then(xml => {
+        const xml2js = require('xml2js');
+        const parser = new xml2js.Parser();
+        parser.parseString(xml, (error, results) => {
+          const rawReviews = results.GoodreadsResponse.reviews[0].review
+          const currentReviews = rawReviews.map(this.parseReview)
+          currentReviews.forEach(review => review.current = true)
+          this.setState({ currentReviews: currentReviews, fetching: this.state.fetching - 1 })
         })
       })
   }
@@ -102,18 +104,32 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state) {
+    if (!this.state || this.state.fetching) {
       return <Spinner />
     }
+    const beginningOfYear = new Date(new Date().getFullYear(), 0, 1)
+    const endOfYear = new Date(new Date().getFullYear() + 1, 0, 1)
+    const readThisYear = []
+    this.state.reviews.forEach(review => {
+      if (review.read_at > beginningOfYear) {
+        const timeToRead = review.read_at - review.started_at
+        const fractionThisYear = (review.read_at - Math.max(beginningOfYear, review.started_at)) / (1.0 * timeToRead)
+        review.pagesThisYear = Math.round(fractionThisYear * review.num_pages)
+        readThisYear.push(review)
+      }
+    })
+    const totalPagesThisYear = readThisYear.map(x => x.pagesThisYear).reduce((a, b) => a + b, 0)
+    const estimatedPagesByEndOfYear = Math.round(totalPagesThisYear * ((endOfYear - beginningOfYear) / (Date.now() - beginningOfYear)))
+
     return (
       <div className="worm">
         <div className="stats">
-          <div className="stat"><span>{this.state.totalPagesThisYear}</span> pages so far this year</div>
-          <div className="stat"><span>{this.state.estimatedPagesByEndOfYear}</span> estimated pages at end of year</div>
+          <div className="stat"><span>{totalPagesThisYear}</span> pages so far this year</div>
+          <div className="stat"><span>{estimatedPagesByEndOfYear}</span> estimated pages at end of year</div>
         </div>
         <div className="books">
           {
-            this.state.reviews.map(review => {
+            this.state.currentReviews.concat(this.state.reviews).map(review => {
               return <Book review={review} onHover={this.selectReview} selected={this.state.selectedReview == review} />
             })
           }
