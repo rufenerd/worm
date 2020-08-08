@@ -52,7 +52,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ fetching: 2})
+    this.setState({ fetching: 2 })
     fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
@@ -118,7 +118,16 @@ export default class App extends React.Component {
         readThisYear.push(review)
       }
     })
-    const totalPagesThisYear = readThisYear.map(x => x.pagesThisYear).reduce((a, b) => a + b, 0)
+
+    const mostRecentlyRead = this.state.reviews.slice(0, 10)
+    const earliestMostRecentStart = Math.min(...mostRecentlyRead.map(review => review.started_at.getTime()))
+    const latestMostRecentEnd = Math.max(...mostRecentlyRead.map(review => review.read_at.getTime()))
+    const mostRecentPages = mostRecentlyRead.reduce((m, a) => m + a.num_pages, 0)
+    const recentReadingRatePerMillisecond = mostRecentPages / (latestMostRecentEnd - earliestMostRecentStart)
+    const estimatedPagesReadOfCurrent = Math.round(0.5 * this.state.currentReviews.reduce((m, a) => {
+      return m + Math.max(a.num_pages, recentReadingRatePerMillisecond * (Date.now() - a.started_at.getTime()))
+    }, 0) / this.state.currentReviews.length)
+    const totalPagesThisYear = estimatedPagesReadOfCurrent + readThisYear.map(x => x.pagesThisYear).reduce((a, b) => a + b, 0)
     const estimatedPagesByEndOfYear = Math.round(totalPagesThisYear * ((endOfYear - beginningOfYear) / (Date.now() - beginningOfYear)))
 
     return (
