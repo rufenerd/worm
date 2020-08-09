@@ -52,7 +52,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ fetching: 2 })
+    this.setState({ fetching: 3 })
     fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
@@ -81,6 +81,21 @@ export default class App extends React.Component {
           const currentReviews = rawReviews.map(this.parseReview)
           currentReviews.forEach(review => review.current = true)
           this.setState({ currentReviews: currentReviews, fetching: this.state.fetching - 1 })
+        })
+      })
+
+    fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=half-read&per_page=200&sort=date_read', {
+      headers: {
+        'origin': 'localhost:1234'
+      }
+    }).then(response => response.text())
+      .then(xml => {
+        const xml2js = require('xml2js');
+        const parser = new xml2js.Parser();
+        parser.parseString(xml, (error, results) => {
+          const rawReviews = results.GoodreadsResponse.reviews[0].review
+          const halfReadReviews = rawReviews.map(this.parseReview)
+          this.setState({ halfReadReviews, fetching: this.state.fetching - 1 })
         })
       })
   }
@@ -127,7 +142,8 @@ export default class App extends React.Component {
     const estimatedPagesReadOfCurrent = Math.round(0.5 * this.state.currentReviews.reduce((m, a) => {
       return m + Math.max(a.num_pages, recentReadingRatePerMillisecond * (Date.now() - a.started_at.getTime()))
     }, 0) / this.state.currentReviews.length)
-    const totalPagesThisYear = estimatedPagesReadOfCurrent + readThisYear.map(x => x.pagesThisYear).reduce((a, b) => a + b, 0)
+    const halfReadTitles = this.state.halfReadReviews.map(x => x.title)
+    const totalPagesThisYear = Math.round(estimatedPagesReadOfCurrent + readThisYear.map(x => halfReadTitles.includes(x.title) ? x.pagesThisYear * 0.4 : x.pagesThisYear).reduce((a, b) => a + b, 0))
     const estimatedPagesByEndOfYear = Math.round(totalPagesThisYear * ((endOfYear - beginningOfYear) / (Date.now() - beginningOfYear)))
 
     return (
