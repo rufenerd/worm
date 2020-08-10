@@ -17,7 +17,7 @@ const Book = props => {
                 {review.current && <div>Reading</div>}
                 <div>{review.num_pages + " pages"}</div>
                 <Rating stars={review.rating} />
-                {daysToRead > 0.5 && <div>{Math.round(review.num_pages / daysToRead)} pages per day</div>}
+                {daysToRead > 0.5 && <div>{Math.round(review.num_pages / daysToRead)} pages/day</div>}
             </div>
         }
     </div>
