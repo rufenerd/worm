@@ -53,7 +53,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.setState({ fetching: 3 })
-    fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -68,7 +68,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=currently-reading&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=currently-reading&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -84,7 +84,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('http://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=half-read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=half-read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
