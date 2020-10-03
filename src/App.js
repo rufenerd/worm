@@ -23,7 +23,7 @@ export default class App extends React.Component {
   }
 
   imageOverrides = {
-    "Network Effect"; "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568667704l/52381770._SX318_SY475_.jpg",
+    "Network Effect": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568667704l/52381770._SX318_SY475_.jpg",
     "The Feynman Lectures on Physics Vol 1": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347350001l/17278.jpg",
     "Parable of the Sower (Earthseed, #1)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442169447l/52397._SY475_.jpg",
     "Dataclysm: Who We Are (When We Think No One's Looking)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1407763834l/21480734.jpg",
