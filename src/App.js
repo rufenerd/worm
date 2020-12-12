@@ -51,8 +51,8 @@ export default class App extends React.Component {
     "The Information: A History, a Theory, a Flood": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348046486l/8701960.jpg",
     "Einstein's Dreams": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386925066l/14376.jpg",
     "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348791881l/8049273.jpg",
-    "The Wise Man's Fear (The Kingkiller Chronicle, #2)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1452624392l/1215032.jpg",
-  }
+    "Textbook of Medical Physiology": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4160/9781416045748.jpg",
+    }
 
   componentDidMount() {
     this.setState({ fetching: 3 })
