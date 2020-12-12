@@ -52,4 +52,4 @@ With Parcel's `--public-url` flag, use the following scripts for deployment:
 },
 ```
 
-Then follow the normal procedure in GitHub Pages and select the `gh-pages` branch.
+Then follow the normal procedure in GitHub Pages and select the `gh-pages` branch. (`npm run deploy` might be what you want...)
