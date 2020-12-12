@@ -50,7 +50,8 @@ export default class App extends React.Component {
     "The Diamond Age: Or, A Young Lady's Illustrated Primer": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388180931l/827.jpg",
     "The Information: A History, a Theory, a Flood": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348046486l/8701960.jpg",
     "Einstein's Dreams": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386925066l/14376.jpg",
-    "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348791881l/8049273.jpg"
+    "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348791881l/8049273.jpg",
+    "The Wise Man's Fear (The Kingkiller Chronicle, #2)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1452624392l/1215032.jpg",
   }
 
   componentDidMount() {
@@ -105,6 +106,7 @@ export default class App extends React.Component {
   parseReview = review => {
     const book = review.book[0]
     const title = book.title[0]
+    console.log(title)
     return {
       title: book.title[0],
       num_pages: this.pageCountOverrides[title] || +book.num_pages[0],
