@@ -28,9 +28,10 @@ export default class App extends React.Component {
     "Superintelligence: Paths, Dangers, Strategies": 352,
     "The Devil in the White City": 447,
     "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies": 336,
-    "Attached": 304,
+    "Attached: The New Science of Adult Attachment and How It Can Help You Find—and Keep—Love": 304,
     "Positively Fifth Street: Murderers, Cheetahs, and Binion's World Series of Poker": 436,
     "Heaven's River (Bobiverse, #4)": 632,
+    "Tribe: On Homecoming and Belonging": 182,
   }
 
   imageOverrides = {
@@ -71,8 +72,10 @@ export default class App extends React.Component {
     "Fungal Biology": "https://m.media-amazon.com/images/I/71fKpYZD7NL._AC_UF1000,1000_QL80_.jpg",
     "Adulthood Rites (Xenogenesis, #2)": "https://cdn.shopify.com/s/files/1/0367/4406/9251/products/9781538753729_1024x1024@2x.jpg?v=1631841983",
     "Binti (Binti, #1)": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1537451443i/41189624.jpg",
-    "This Is Your Brain On Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445050332i/25897836._UY630_SR1200,630_.jpg",
+    "This Is Your Brain On Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1445050332i/25897836.jpg",
     "The Diamond Age: Or, a Young Lady's Illustrated Primer": "https://images-na.ssl-images-amazon.com/images/I/91Vy63eUhHL._AC_UL210_SR210,210_.jpg",
+    "Heaven's River (Bobiverse, #4)": "https://m.media-amazon.com/images/I/41S-0lqypRL.jpg",
+    "Emergency Skin": "https://knightagency.net/wp-content/uploads/2020/04/es.png",
   }
 
   componentDidMount() {
