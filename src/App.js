@@ -20,6 +20,17 @@ export default class App extends React.Component {
     "For We Are Many (Bobiverse, #2)": 320,
     "Permutation City": 352,
     "Seven Surrenders (Terra Ignota, #2)": 365,
+    "This Is Your Brain On Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society": 288,
+    "No Mud, No Lotus: The Art of Transforming Suffering": 128,
+    "Life on the Edge: The Coming of Age of Quantum Biology": 368,
+    "I Am a Strange Loop": 436,
+    "Introduction to the Theory of Computation": 456,
+    "Superintelligence: Paths, Dangers, Strategies": 352,
+    "The Devil in the White City": 447,
+    "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies": 336,
+    "Attached": 304,
+    "Positively Fifth Street: Murderers, Cheetahs, and Binion's World Series of Poker": 436,
+    "Heaven's River (Bobiverse, #4)": 632,
   }
 
   imageOverrides = {
@@ -60,6 +71,8 @@ export default class App extends React.Component {
     "Fungal Biology": "https://m.media-amazon.com/images/I/71fKpYZD7NL._AC_UF1000,1000_QL80_.jpg",
     "Adulthood Rites (Xenogenesis, #2)": "https://cdn.shopify.com/s/files/1/0367/4406/9251/products/9781538753729_1024x1024@2x.jpg?v=1631841983",
     "Binti (Binti, #1)": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1537451443i/41189624.jpg",
+    "This Is Your Brain On Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445050332i/25897836._UY630_SR1200,630_.jpg",
+    "The Diamond Age: Or, a Young Lady's Illustrated Primer": "https://images-na.ssl-images-amazon.com/images/I/91Vy63eUhHL._AC_UL210_SR210,210_.jpg",
   }
 
   componentDidMount() {
