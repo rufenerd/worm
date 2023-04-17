@@ -3,7 +3,7 @@ import Spinner from './Spinner'
 import Book from './Book'
 
 export default class App extends React.Component {
-  // TODO: Read more than once, fetch details: https://www.goodreads.com/review/show.xml?id=1647848785&key=1vD1GcrriYfBawccVQYlgg
+  // TODO: Read more than once, fetch details: https://www.goodreads.com/review/show.xml?id=1647848785&key=ScVT98d1ZDPB8Ay3ow1ZQ
   // TODO: currently reading
   // TODO: More than 200
   // TODO: other years
@@ -23,7 +23,7 @@ export default class App extends React.Component {
   }
 
   imageOverrides = {
-    "Ready Player One (Ready Player One, #1)":  "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390275705l/20603758.jpg",
+    "Ready Player One (Ready Player One, #1)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390275705l/20603758.jpg",
     "Network Effect (The Murderbot Diaries, #5)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568667704l/52381770._SX318_SY475_.jpg",
     "The Feynman Lectures on Physics Vol 1": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347350001l/17278.jpg",
     "Parable of the Sower (Earthseed, #1)": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442169447l/52397._SY475_.jpg",
@@ -52,11 +52,11 @@ export default class App extends React.Component {
     "Einstein's Dreams": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386925066l/14376.jpg",
     "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348791881l/8049273.jpg",
     "Textbook of Medical Physiology": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4160/9781416045748.jpg",
-    }
+  }
 
   componentDidMount() {
     this.setState({ fetching: 3 })
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -71,7 +71,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=currently-reading&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=currently-reading&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -87,7 +87,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=1vD1GcrriYfBawccVQYlgg&shelf=half-read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=half-read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
