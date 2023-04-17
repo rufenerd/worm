@@ -54,7 +54,10 @@ export default class App extends React.Component {
     "Textbook of Medical Physiology": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4160/9781416045748.jpg",
     "The Happiness Trap: How To Stop Struggling And Start Living": "https://cdn.mall.adeptmind.ai/https%3A%2F%2Fslimages.macys.com%2Fis%2Fimage%2FMCY%2Fproducts%2F2%2Foptimized%2F22334622_fpx.tif_large.jpg",
     "Accelerando": "https://upload.wikimedia.org/wikipedia/en/0/0b/Accelerando_%28book_cover%29.jpg",
+    "Dawn (Xenogenesis, #1)": "http://cdn.shopify.com/s/files/1/0117/0387/7732/products/Screenshot_20210623-102417_Amazon_Shopping_1200x1200.jpg?v=1624469293",
+    "Foundation and Empire (Foundation, #2)": "https://m.media-amazon.com/images/I/51A5vtTsm6L._AC_UF350,350_QL80_.jpg",
     "Exhalation": "https://m.media-amazon.com/images/I/71AethrQRRL._AC_UF1000,1000_QL80_.jpg",
+    "Fungal Biology": "https://m.media-amazon.com/images/I/71fKpYZD7NL._AC_UF1000,1000_QL80_.jpg",
     "Adulthood Rites (Xenogenesis, #2)": "https://cdn.shopify.com/s/files/1/0367/4406/9251/products/9781538753729_1024x1024@2x.jpg?v=1631841983",
   }
 
