@@ -59,6 +59,7 @@ export default class App extends React.Component {
     "Exhalation": "https://m.media-amazon.com/images/I/71AethrQRRL._AC_UF1000,1000_QL80_.jpg",
     "Fungal Biology": "https://m.media-amazon.com/images/I/71fKpYZD7NL._AC_UF1000,1000_QL80_.jpg",
     "Adulthood Rites (Xenogenesis, #2)": "https://cdn.shopify.com/s/files/1/0367/4406/9251/products/9781538753729_1024x1024@2x.jpg?v=1631841983",
+    "Binti (Binti, #1)": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1537451443i/41189624.jpg",
   }
 
   componentDidMount() {
