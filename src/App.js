@@ -75,7 +75,7 @@ export default class App extends React.Component {
     "This Is Your Brain On Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1445050332i/25897836.jpg",
     "The Diamond Age: Or, a Young Lady's Illustrated Primer": "https://images-na.ssl-images-amazon.com/images/I/91Vy63eUhHL._AC_UL210_SR210,210_.jpg",
     "Heaven's River (Bobiverse, #4)": "https://m.media-amazon.com/images/I/41S-0lqypRL.jpg",
-    "Emergency Skin": "https://fanbasepress.com/media/k2/items/cache/d14174db6c28a436faf64915282f0e7d_XL.jpg",
+    "Emergency Skin": "https://m.media-amazon.com/images/I/417+590RZBL.jpg",
   }
 
   componentDidMount() {
