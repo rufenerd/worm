@@ -1,3 +1,7 @@
+# unbitrot debt instructions
+To run, need to unlock at https://cors-anywhere.herokuapp.com/corsdemo
+and possibly reset https://www.goodreads.com/api/keys 
+
 # Nano React App Default Javascript Template
 
 The default template project for [nano-react-app](https://github.com/adrianmcli/nano-react-app).
