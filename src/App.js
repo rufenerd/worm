@@ -3,7 +3,7 @@ import Spinner from './Spinner'
 import Book from './Book'
 
 export default class App extends React.Component {
-  // TODO: Read more than once, fetch details: https://www.goodreads.com/review/show.xml?id=1647848785&key=ScVT98d1ZDPB8Ay3ow1ZQ
+  // TODO: Read more than once, fetch details: https://www.goodreads.com/review/show.xml?id=1647848785&key=Yrv8zSSjO4RxeVhvGPJVGw
   // TODO: currently reading
   // TODO: More than 200
   // TODO: other years
@@ -80,7 +80,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.setState({ fetching: 3 })
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=Yrv8zSSjO4RxeVhvGPJVGw&shelf=read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -95,7 +95,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=currently-reading&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=Yrv8zSSjO4RxeVhvGPJVGw&shelf=currently-reading&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
@@ -111,7 +111,7 @@ export default class App extends React.Component {
         })
       })
 
-    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=ScVT98d1ZDPB8Ay3ow1ZQ&shelf=half-read&per_page=200&sort=date_read', {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list?v=2&id=46208145&key=Yrv8zSSjO4RxeVhvGPJVGw&shelf=half-read&per_page=200&sort=date_read', {
       headers: {
         'origin': 'localhost:1234'
       }
